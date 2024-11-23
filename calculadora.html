@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fundo">
+        <!-- FUNDO -->
+        <h1 class="hik">Hikari</h1>
+        <div class="elipsa">
+        <img src="svg/Ellipse 1.svg"  style="height: 100px; display: flex; margin: 20px 0 0 100px;" alt="">
+        <img src="svg/Ellipse 1.svg"  style="height: 50px; display: flex; margin: 0px 0 0 600px;" alt="">
+        <img src="svg/Ellipse 1.svg"  style="height: 130px; display: flex; margin: 90px 0 0 700px;" alt="">
+        <img src="svg/Ellipse 1.svg"  style="height: 90px; display: flex; margin: 90px 0 0 500px;" alt="">
+        <img src="svg/Ellipse 1.svg"  style="height: 40px; display: flex; margin: 30px 0 0 100px;" alt="">
+        </div>
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <!-- CALCULADORA -->
+            <p id="resultado"></p>
+            <table>
+                <!-- BOTÕES DA CALCULADORA -->
+                <tr>
+                    <td><button class="botao" onclick="clean()">C</button></td>
+                    <td><button class="botao" onclick="back()"><</button></td>
+                    <td><button class="botao" onclick="insert('/')">/</button></td>
+                    <td><button class="botao" style="font-size: 22px;" onclick="insert('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('7')">7</button></td>
+                    <td><button class="botao" onclick="insert('8')">8</button></td>
+                    <td><button class="botao" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td>
+                    <td><button class="botao" onclick="insert('5')">5</button></td>
+                    <td><button class="botao" onclick="insert('6')">6</button></td>
+                    <td><button class="botao" onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td>
+                    <td><button class="botao" onclick="insert('2')">2</button></td>
+                    <td><button class="botao" onclick="insert('3')">3</button></td>
+                    <td rowspan="2"><button class="botao" style="height: 106px; background-color: #800610; ;" onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;"  onclick="insert('0')">0</button></td>
+                    <td><button class="botao" onclick="insert('.')">.</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        // FUNÇÕES DA CALCULADORA
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = numero + num;
+            
+        }
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado)
+            {
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            }
+            else
+            {
+                document.getElementById('resultado').innerHTML = "N/A"
+            }
+        }
+    </script>
+</body>
+</html>
